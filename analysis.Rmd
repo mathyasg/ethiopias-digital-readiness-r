@@ -1,0 +1,212 @@
+---
+title: "Architecture of Growth: Ethiopia’s Digital Economy Success Story"
+subtitle: "A Comparative Study of ICT Multipliers and Regional Connectivity Benchmarks"
+author: "Mathyas Tilahun"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    highlight: tango
+---
+
+<style>
+caption {
+  caption-side: bottom;
+  font-style: italic;
+  padding-top: 10px;
+  color: #555;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, dpi = 300)
+library(tidyverse)
+library(ggplot2)
+library(broom)
+library(knitr)
+```
+
+
+# Introduction
+This analysis explores the **growth of Ethiopia’s ICT infrastructure from 2010 to 2024** using key World Bank indicators. By benchmarking Ethiopia against the Sub-Saharan Africa (SSA) average, we examine **growth in internet penetration and mobile connectivity as well as their correlation with economic growth (GDP per capita).** This report specifically monitors progress toward *SDG 9: Industry, Innovation, and Infrastructure*
+
+# Data Loading and Cleaning
+```{r data-cleaning}
+
+# Load the raw CSV file
+df_raw <- read_csv("digital_inclusion_raw.csv")
+
+# Initial Cleaning & Filtering metadata
+df_clean <- df_raw %>%
+  select(`Country Name`, `Series Name`, `2010`:`2024`) %>%
+  rename(Country = `Country Name`,
+         Indicator = `Series Name`) %>%
+
+  filter(!is.na(Country), 
+         !str_detect(Country, "Data from database|Last Updated"))
+
+# Reshape from wide to long format
+df_long <- df_clean %>%
+  pivot_longer(
+    cols = -c(Country, Indicator), 
+    names_to = "Year",
+    values_to = "Value",
+    values_transform = list(Value = as.character)
+  ) %>%
+  mutate(
+    Year = as.numeric(Year),
+    Value = as.numeric(Value) 
+  )
+  
+cat("\ndigital_economy_raw.csv was successfully loaded. A working copy is then created containing relevant columns only. ",
+    "The table is then reshaped to a long format. \n")
+```
+Note: Missing values in 2018 for Ethiopia were handled as NA to prevent skewing the regression analysis.
+
+```{r data-cleaning2}
+# Document missing values
+missing_summary <- df_long %>%
+  group_by(Indicator, Country) %>%
+  summarise(
+    Total_Observations = n(),
+    Missing_Values = sum(is.na(Value)),
+    .groups = 'drop'
+  ) %>%
+  filter(Missing_Values > 0) %>%
+  select(Indicator, Country, Missing_Values, Total_Observations)
+
+# Print Missing Values Summary in a table
+missing_summary %>%
+  knitr::kable(caption = "Summary of Missing Data Points (2010-2024)")
+```
+
+
+# Visualizations
+
+```{r plot, fig.width=11, fig.height=6.5, warning=FALSE, message=FALSE, out.width="100%"}
+# Plot 1: Internet Penetration
+p1 <- ggplot(df_long %>% filter(Indicator == "Individuals using the Internet (% of population)"),
+       aes(x = Year, y = Value, color = Country, group = Country)) +
+  geom_line(size = 1.3) + 
+  geom_point(size = 3.5) +
+  scale_x_continuous(breaks = seq(2010, 2024, by = 2)) +
+  labs(title = "Internet Penetration: Ethiopia vs Sub-Saharan Africa",
+       subtitle = "Individuals using the Internet (% of population), 2010–2024",
+       y = "% of Population",
+       x = "Year",
+       caption = "Source: World Bank Development Indicators") +
+  theme_minimal(base_size = 14) +
+  scale_color_manual(values = c("Ethiopia" = "#1f77b4", "Sub-Saharan Africa" = "#ff7f0e")) +
+  theme(
+    legend.position = c(0.15, 0.85), 
+    legend.background = element_rect(fill = "white", color = "lightgrey"),
+    plot.title = element_text(face = "bold"),
+    plot.caption = element_text(hjust = 0.5, size = 10, face = "italic")
+  )
+print(p1)
+
+# Plot 2: Mobile Subscriptions
+p2 <- ggplot(df_long %>% filter(Indicator == "Mobile cellular subscriptions (per 100 people)", !is.na(Value)),
+       aes(x = Year, y = Value, color = Country, group = Country)) +
+  geom_line(size = 1.3) + 
+  geom_point(size = 3.5) +
+  scale_x_continuous(breaks = seq(2010, 2024, by = 2)) +
+  labs(title = "Mobile Cellular Subscriptions",
+       subtitle = "per 100 people, 2010–2024",
+       y = "Subscriptions per 100 people",
+       x = "Year",
+       caption = "Source: World Bank Development Indicators") +
+  theme_minimal(base_size = 14) +
+  scale_color_manual(values = c("Ethiopia" = "#1f77b4", "Sub-Saharan Africa" = "#ff7f0e")) +
+  theme(
+    legend.position = c(0.85, 0.2), 
+    legend.background = element_rect(fill = "white", color = "lightgrey"),
+    plot.title = element_text(face = "bold"),
+    plot.caption = element_text(hjust = 0.5, size = 10, face = "italic")
+  )
+print(p2)
+```
+
+# Statistical Analysis - Linear Regression
+We performed linear regression to measure the relationship between digital indicators and GDP per capita in both regions.
+
+```{r regression}
+ethiopia_wide <- df_long %>%
+  filter(Country == "Ethiopia") %>%
+  pivot_wider(names_from = Indicator, values_from = Value)
+
+ssa_wide <- df_long %>%
+  filter(Country == "Sub-Saharan Africa") %>%
+  pivot_wider(names_from = Indicator, values_from = Value)
+
+# Regression 1: Internet Penetration → GDP per capita - ETH
+model1 <- lm(`GDP per capita (current US$)` ~ `Individuals using the Internet (% of population)`, data = ethiopia_wide)
+# Regression 2: Mobile Subscriptions → GDP per capita - ETH
+model2 <- lm(`GDP per capita (current US$)` ~ `Mobile cellular subscriptions (per 100 people)`, data = ethiopia_wide)
+# Regression 1: Internet Penetration → GDP per capita - SSA
+model3 <- lm(`GDP per capita (current US$)` ~ `Individuals using the Internet (% of population)`,data = ssa_wide)
+# Regression 1: Mobile Subscriptions → GDP per capita - SSA
+model4 <- lm(`GDP per capita (current US$)` ~ `Mobile cellular subscriptions (per 100 people)`,data = ssa_wide)
+
+#Building tables using both 'tidy' nad 'glance' data
+
+# Helper function to combine Tidy and Glance stats
+get_stats <- function(model, region_name) {
+  t_stats <- tidy(model) %>% filter(term != "(Intercept)")
+  g_stats <- glance(model)
+  
+  data.frame(
+    Region = region_name,
+    Estimate = t_stats$estimate,
+    `P-Value` = t_stats$p.value,
+    `R-Squared` = g_stats$r.squared
+  )
+}
+
+# --- TABLE 1: Internet Penetration Comparison ---
+internet_comparison <- bind_rows(
+  get_stats(model1, "Ethiopia"),
+  get_stats(model3, "Sub-Saharan Africa")
+)
+
+knitr::kable(internet_comparison, digits = 3, 
+             caption = "Table 1: Comparison of Internet Penetration Impact on GDP")
+
+# --- TABLE 2: Mobile Subscription Comparison ---
+mobile_comparison <- bind_rows(
+  get_stats(model2, "Ethiopia"),
+  get_stats(model4, "Sub-Saharan Africa")
+)
+
+knitr::kable(mobile_comparison, digits = 3, 
+             caption = "Table 2: Comparison of Mobile Subscription Impact on GDP")
+```
+## Statistical Interpretation - Understanding the Tables:
+
+- **Impact:** This value represents the "slope." In Table 1, an impact of 32.95 means that for every 1% increase in internet penetration, the GDP per capita is expected to rise by $32.95 USD.
+- **P-Value (Reliability):** Describes the probability of the relationship we're seeing being just a lucky accident (noise).We look for values less than 0.05. If p < 0.05:, it is "statistically significant. If p > 0.05: It is not statistically significant."
+- **R-Squared (Explanatory Power):** This tells us what percentage of the variance in our dependent variable (GDP) is explained by our independent variable (Internet/Mobile). It ranges from 0 to 1 (or 0% to 100%). An R-Squared of 0.87 means that 87% of the variation in GDP can be explained by internet penetration alone. The remaining 13% is influenced by other external economic factors.
+
+In economics, a high R-Squared is great, but a low p-value is more important. A low p-value means the effect is **real**, even if it only explains a small part of the big picture!(when  R-squared is low)
+
+**Methodological Note: Understanding Correlation vs. Causation**
+
+While the model shows a strong fit, it is important to acknowledge that GDP is driven by many factors beyond technology—including agriculture, foreign investment, and global trade.  
+This study *does not claim that ICT is the only driver of Ethiopia’s growth.* Instead, it demonstrates that ICT is a high-precision predictor and an essential economic enabler. The data shows that digital transformation moves in near-perfect lockstep with national prosperity, even as other macroeconomic factors play their part.
+
+# Key Insights
+
+- **The Lagged Dividend and the FinTech Catalyst (2021–2024)** 
+The data shows that the initial 2018 telecommunication liberalization policy did not yield an immediate spike, but rather a three-year gestation period followed by a vertical acceleration in 2021. 
+  - *Analysis:* This reflects an Infrastructure Lag Effect, where the time required for capital expenditure and network densification delayed the visible impact of the 2018 reforms. However, the surge in 2021 was uniquely amplified by a second, independent data point: the launch of Telebirr in May 2021. By introducing mobile financial services at the exact moment the lagged infrastructure was ready, Ethiopia experienced a "perfect storm" of connectivity and utility. This suggests that liberalization provided the pipes, but FinTech provided the water that finally drove mass adoption and economic synchronization. 
+- **Ethiopia as a Digital Growth Outlier**
+A stark contrast exists between the domestic and regional models. While the Sub-Saharan Africa (SSA) aggregate data is statistically "noisy" *(P > 0.40)* and shows almost no correlation with GDP *(R^2 < 0.06),* Ethiopia’s model is exceptionally precise *(P < 0.001, R^2 = 0.876).*
+  - *Analysis:* The "noise" in the SSA average reflects the structural heterogeneity of the region—where diverse political shocks and commodity dependencies cancel each other out. In contrast, Ethiopia’s tight correlation proves its digital sector is a highly reliable and disciplined engine for economic expansion.
+- **The "Multiplier Gap": Depth vs. Breadth**
+While both Mobile and Internet growth explain 87.6% of Ethiopia’s GDP variance, the Economic Impact Estimate for Internet usage (32.95) is more than double that of Mobile subscriptions (14.06).
+  - *Analysis:* This highlights the difference between Access (Mobile) and Utilization (Internet). While mobile phones provide the breadth of connectivity, internet penetration drives the depth of economic value. For every 1% growth, internet usage provides a 2.3x higher return on GDP per capita than basic mobile connectivity alone.
+- **The Persistent Digital Divide**
+Despite Ethiopia’s growth being more "efficient" and reliable than the regional average, an absolute gap remains. Ethiopia’s internet penetration (21.9%) still sits roughly 12 percentage points below the SSA average (33.6%).
+  - Analysis: This "Catch-up Gap" represents an untapped economic frontier. Given the high multiplier effect of internet usage found in the regression models, closing this 12% gap could result in a significant, non-linear boost to Ethiopia's GDP per capita.
