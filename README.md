@@ -1,40 +1,50 @@
-# Architecture of Growth: Ethiopia’s Digital Economy Success Story #
-## A Comparative Study of ICT Multipliers and Regional Connectivity Benchmarks ##
+# Architecture of Growth: Ethiopia’s Digital Economy Success Story (2010-2024) #
+**Comparative Analysis vs Sub-Saharan Africa using World Bank Data**
 
-📊 Project Overview
+![Internet Penetration Trend](internet-penetration.png)  
+*(Add one or two key plot screenshots here)*
 
-This repository contains a comprehensive data analysis of Ethiopia's ICT infrastructure evolution from 2010 to 2024. Using World Bank Development Indicators, the study employs comparative linear regression to quantify how digital connectivity has translated into economic output (GDP per capita).
+## Project Overview
 
-The core of this project is a comparison between Ethiopia’s disciplined growth trajectory and the aggregate trends of the Sub-Saharan Africa (SSA) region.
+This project examines the evolution of Ethiopia’s ICT infrastructure and digital readiness from 2010 to 2024. Using World Bank Development Indicators, it benchmarks Ethiopia’s performance against the Sub-Saharan Africa (SSA) average and analyzes the relationship between digital connectivity (internet penetration and mobile subscriptions) and economic output (GDP per capita).
 
-🛠️ Methodology & Tech Stack
+The analysis supports monitoring progress toward **SDG 9** — Industry, Innovation and Infrastructure.
 
-Language: R
+## Key Findings
 
-Key Libraries: tidyverse (Data Wrangling), ggplot2 (Visualization), broom (Statistical Modeling), knitr (Reporting).
+- Ethiopia has achieved strong growth in mobile connectivity, reaching over 65 subscriptions per 100 people by 2024.
+- Internet penetration has improved significantly since the 2018 telecom reforms but still lags the SSA average (21.9% vs 33.6%).
+- Linear regression shows a **strong positive relationship** in Ethiopia: A 1% increase in internet penetration is associated with approximately **$33 higher GDP per capita** (R² = 0.876, p < 0.001).
+- The economic multiplier of internet usage is more than double that of basic mobile subscriptions.
 
-Statistical Approach: Ordinary Least Squares (OLS) Regression.
+## Methodology & Tech Stack
 
-Data Source: World Bank Open Data 
+- **Language**: R
+- **Key Packages**: `tidyverse` (Data Wrangling), `ggplot2` (Visualization), `broom` (Statistical Modeling), `knitr` (Reporting)
+- **Techniques**: Data cleaning, time-series analysis, OLS linear regression, comparative visualization
+- **Data Source**: World Bank Open Data (Development Indicators)
 
-🚀 Key Analytical Findings
+## Repository Structure
+      ethiopias-digital-readiness-r/
+         ├── README.md
+         ├── analysis.Rmd    #The master R Markdown file containing all code and narrative
+         ├── Architecture_of_Growth.html:       #The final knitted report
+         ├── digital_inclusion_raw.csv:    #The  dataset used for the study
+         ├── internet_penetration.png      # vizualization1
+         └── cellular_subscriptions.png      # vizualization2
+              
+## How to Reproduce
 
-1. The "Contestability" Effect. The analysis reveals that connectivity markers accelerated sharply post-2018. This suggests a Contestability Effect: the mere policy shift toward liberalization forced improvements in the sector four years before a second operator (Safaricom) physically entered the market in 2022.
+1. Clone this repository
+2. Open `analysis.Rmd` in RStudio
+3. Install required packages:
+   ```r
+   install.packages(c("tidyverse", "ggplot2", "broom", "knitr"))
+4. Knit the document
 
-2. Ethiopia as a Digital Outlier. While the Sub-Saharan Africa aggregate data shows significant statistical "noise" due to regional structural heterogeneity ($R^2 < 0.06$), Ethiopia’s model shows a remarkably precise correlation ($R^2 = 0.876$). This indicates that Ethiopia's economy is exceptionally sensitive to ICT improvements.
+## Future Improvements ##
+**Build an interactive Power BI dashboard**
 
-3. The Multiplier Gap (Depth vs. Breadth) A critical discovery in the regression estimates: Internet Impact: 32.95 (GDP per capita increase per 1% growth) Mobile Impact: 14.06 (GDP per capita increase per 1% growth) Insight: While mobile subscriptions provide the breadth of access, internet usage provides the depth of value, yielding a 2.3x higher economic return.
-
-📁 Repository Structure
-- analysis.Rmd: The master R Markdown file containing all code and narrative.
-- digital_inclusion_raw.csv: The cleaned dataset used for the study.
-- Architecture_of_Growth.html: The final knitted report (includes interactive Table of Contents and formatted tables).
-   
-📈 Visualizations
-The project includes time-series visualizations and regression tables that highlight:
-- The "catch-up" growth of Ethiopia compared to SSA benchmarks.
-- The inflection points in mobile and internet penetration.
-- Comparative statistical tables showing Estimate, P-Value, and R-Squared values.
 
 Author: Mathyas Tilahun
 
