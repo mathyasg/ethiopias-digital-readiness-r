@@ -1,8 +1,7 @@
 # Architecture of Growth: Ethiopia’s Digital Economy Success Story (2010-2024) #
 **Comparative Analysis vs Sub-Saharan Africa using World Bank Data**
 
-![Internet Penetration Trend](internet-penetration.png)  
-*(Add one or two key plot screenshots here)*
+![Internet Penetration Trend](internet_penetration.png)  
 
 ## Project Overview
 
