@@ -183,13 +183,15 @@ The regression analysis reveals **a strong and statistically significant positiv
 
 In contrast, the same models for the Sub-Saharan Africa average show weak and statistically insignificant relationships.
 
-**Methodological Note: Correlation vs. Causation**
+**Methodological Limitations: Correlation vs. Causation**
 
 While the models show a strong statistical fit, it is important to note that correlation does not imply causation. GDP per capita is influenced by many factors, including agriculture, foreign investment, trade, and political stability.
 
-This analysi *does not claim that ICT is the sole driver of Ethiopia’s economic growth.* Rather, it demonstrates that digital access is a high-precision predictor and a powerful economic enabler. The data shows that digital transformation moves in near-perfect lockstep with national prosperity, even as other macroeconomic factors play their part.
+The regression results should be interpreted with appropriate caution. Both internet penetration and mobile subscriptions are strongly trending series that move in parallel with GDP per capita over the 2010–2024 period.These are simple bivariate OLS models on a relatively small sample of annual observations (n ≈ 15). They demonstrate a strong and statistically significant *association* between digital access and economic output in Ethiopia, but they do not isolate the causal effect of ICT after controlling for other macroeconomic drivers (investment, agricultural performance, political stability, etc.).
 
-**Limitations:** This analysis is based on aggregate national level data and does not account for urban-rural disparities or other macroeconomic variables. Regression results show association, not definitive causation.
+The analysis is also based on aggregate national level data and does not account for urban-rural disparities or other macroeconomic variables. Regression results show association, not definitive causation.
+
+This analysis *does not claim that ICT is the sole driver of Ethiopia’s economic growth.* Rather, it demonstrates that digital access is a high-precision predictor and a powerful economic enabler of growth.
 
 # Key Insights
 
