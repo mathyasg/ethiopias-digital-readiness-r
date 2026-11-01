@@ -1,7 +1,7 @@
 # Architecture of Growth: Ethiopia’s Digital Economy Success Story (2010-2024) #
 **Comparative Analysis vs Sub-Saharan Africa using World Bank Data**
 
-![Internet Penetration Trend](internet_penetration.png)  
+![Internet Penetration Trend](plots/internet_penetration.png)  
 
 ## Project Overview
 
@@ -35,16 +35,15 @@ Key points:
 
 ## Repository Structure
       ethiopias-digital-readiness-r/
-         ├── README.md
-		 ├── data_cleaning_script.R 	#Reproducible cleaning script
-         ├── analysis.Rmd    #The master R Markdown file (sources cleaning script)
-         ├── analysis.html:       #The final knitted report
-         ├── digital_inclusion_raw.csv    #original world bank export
-		 ├──digital_inclusion_clean_wide.csv  # cleaned wide data (for models)
-		 ├──digital_inclusion_clean_long.csv  # cleaned tidy long data
-         ├── internet_penetration.png      # vizualization1
-         └── cellular_subscriptions.png      # vizualization2
-              
+    	├── Plots 								#Folder containing plots produced for the analysis
+		├── README.md
+		├── data_cleaning_script.R 				#Reproducible cleaning script
+    	├── analysis.Rmd    					#The master R Markdown file (sources cleaning script)
+    	├── analysis.html:       				#The final knitted report
+    	├── digital_inclusion_raw.csv    		# original World Bank export
+		├──digital_inclusion_clean_wide.csv  	# cleaned wide data (for models)
+		└──digital_inclusion_clean_long.csv  	# cleaned tidy long data
+                   
 ## How to Reproduce
 
 1. Clone this repository
@@ -58,9 +57,9 @@ Key points:
 Alternatively, you can run the cleaning script on its own
 
 ## Future Improvements ##
-**Build an interactive Power BI dashboard**
-**Add more SSA peer countries for richer regional comparison**
-**Extend the time series as new WDI updates become available**
+- Build an interactive Power BI dashboard
+- Add more SSA peer countries for richer regional comparison
+- Extend the time series as new WDI updates become available
 
 Author: Mathyas Tilahun
 
