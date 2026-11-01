@@ -9,6 +9,16 @@ This project examines the evolution of Ethiopia’s ICT infrastructure and digit
 
 The analysis supports monitoring progress toward **SDG 9** — Industry, Innovation and Infrastructure.
 
+## Data Cleaning Notes
+All cleaning decisions are documented inside **data_cleaning_script.R**.
+
+Key points:
+
+- World Bank “..” values are treated as missing.
+- Metadata rows at the bottom of the export are dropped.
+- Only Ethiopia and Sub-Saharan Africa are retained.
+- Genuine 2018 data gaps for Ethiopia (mobile & fixed broadband) are left as NA and are not imputed.
+
 ## Key Findings
 
 - Ethiopia has achieved strong growth in mobile connectivity, reaching over 65 subscriptions per 100 people by 2024.
@@ -26,24 +36,31 @@ The analysis supports monitoring progress toward **SDG 9** — Industry, Innovat
 ## Repository Structure
       ethiopias-digital-readiness-r/
          ├── README.md
-         ├── analysis.Rmd    #The master R Markdown file containing all code and narrative
-         ├── Architecture_of_Growth.html:       #The final knitted report
-         ├── digital_inclusion_raw.csv:    #The  dataset used for the study
+		 ├── data_cleaning_script.R 	#Reproducible cleaning script
+         ├── analysis.Rmd    #The master R Markdown file (sources cleaning script)
+         ├── analysis.html:       #The final knitted report
+         ├── digital_inclusion_raw.csv    #original world bank export
+		 ├──digital_inclusion_clean_wide.csv  # cleaned wide data (for models)
+		 ├──digital_inclusion_clean_long.csv  # cleaned tidy long data
          ├── internet_penetration.png      # vizualization1
          └── cellular_subscriptions.png      # vizualization2
               
 ## How to Reproduce
 
 1. Clone this repository
-2. Open `analysis.Rmd` in RStudio
+2. Open the project in RStudio (or set the working directory to the project root)
 3. Install required packages:
    ```r
    install.packages(c("tidyverse", "ggplot2", "broom", "knitr"))
-4. Knit the document
+   ```
+4. Open analysis.Rmd and knit the document
+(The cleaning script is automatically sourced at the start of the analysis)
+Alternatively, you can run the cleaning script on its own
 
 ## Future Improvements ##
 **Build an interactive Power BI dashboard**
-
+**Add more SSA peer countries for richer regional comparison**
+**Extend the time series as new WDI updates become available**
 
 Author: Mathyas Tilahun
 

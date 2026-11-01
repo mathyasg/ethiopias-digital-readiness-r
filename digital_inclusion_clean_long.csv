@@ -1,0 +1,121 @@
+Country,Indicator,Year,Value,Indicator_short
+Ethiopia,Individuals using the Internet (% of population),2010,0.75,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2011,1.100000024,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2012,2.9000000950000002,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2013,4.599999905,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2014,7.699999809,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2015,13.85517556,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2016,15.36692386,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2017,15.62440014,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2018,15.88619995,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2019,15.98460007,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2020,16.06959915,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2021,16.6981031,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2022,17.9836998,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2023,20.33749962,internet_pct
+Ethiopia,Individuals using the Internet (% of population),2024,21.94129944,internet_pct
+Ethiopia,Mobile cellular subscriptions (per 100 people),2010,7.570258995,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2011,15.16550032,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2012,21.42395945,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2013,26.05362699,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2014,30.15360339,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2015,40.73630124,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2016,47.99932742,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2017,36.10948363,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2018,NA,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2019,36.21993077,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2020,37.42084723,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2021,52.80886332,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2022,56.96429888,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2023,59.87487444,mobile_per_100
+Ethiopia,Mobile cellular subscriptions (per 100 people),2024,65.08250919,mobile_per_100
+Ethiopia,GDP per capita (current US$),2010,330.6194128,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2011,343.0249424,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2012,452.1010319,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2013,484.0398331,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2014,549.9865771,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2015,597.9121132,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2016,641.6515233,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2017,696.3484291,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2018,739.7020223,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2019,793.4732472,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2020,829.7909825,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2021,893.0098354,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2022,982.1031615,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2023,1055.810916,gdp_pc_usd
+Ethiopia,GDP per capita (current US$),2024,1133.882797,gdp_pc_usd
+Ethiopia,Fixed broadband subscriptions (per 100 people),2010,0.004536191,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2011,0.006820185,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2012,0.0089093,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2013,0.241842768,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2014,0.466085306,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2015,0.460203316,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2016,0.523809621,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2017,0.057401313,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2018,NA,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2019,0.137379986,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2020,0.178274598,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2021,0.39938238,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2022,0.45157652,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2023,0.53482318,broadband_per_100
+Ethiopia,Fixed broadband subscriptions (per 100 people),2024,0.59391745,broadband_per_100
+Sub-Saharan Africa,Individuals using the Internet (% of population),2010,6,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2011,7.5,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2012,9.2,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2013,11.2,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2014,13.4,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2015,16.2,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2016,18.3,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2017,20,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2018,22,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2019,24.4,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2020,26.7,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2021,29,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2022,31.1,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2023,32.3,internet_pct
+Sub-Saharan Africa,Individuals using the Internet (% of population),2024,33.6,internet_pct
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2010,44.09398402,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2011,52.16341512,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2012,58.58250966,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2013,64.71106467,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2014,69.37848669,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2015,73.3,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2016,71.5,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2017,70.8,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2018,74.4,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2019,77.4,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2020,80.8,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2021,83,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2022,87.6,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2023,90,mobile_per_100
+Sub-Saharan Africa,Mobile cellular subscriptions (per 100 people),2024,89.2,mobile_per_100
+Sub-Saharan Africa,GDP per capita (current US$),2010,1642.641342,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2011,1795.438149,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2012,1817.301258,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2013,1879.558731,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2014,1906.79597,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2015,1646.449411,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2016,1455.035253,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2017,1546.917742,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2018,1620.541408,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2019,1795.561279,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2020,1627.345696,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2021,1785.466649,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2022,1865.116353,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2023,1680.779667,gdp_pc_usd
+Sub-Saharan Africa,GDP per capita (current US$),2024,1532.927636,gdp_pc_usd
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2010,0.161017934,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2011,0.262648444,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2012,0.24611533,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2013,0.315008159,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2014,0.379554951,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2015,0.4,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2016,0.4,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2017,0.4,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2018,0.4,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2019,0.5,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2020,0.45,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2021,0.51,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2022,0.56,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2023,0.66,broadband_per_100
+Sub-Saharan Africa,Fixed broadband subscriptions (per 100 people),2024,0.84,broadband_per_100
